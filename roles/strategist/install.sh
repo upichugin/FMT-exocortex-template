@@ -20,8 +20,8 @@ cp "$LAUNCHD_DIR/com.strategist.weekreview.plist" "$TARGET_DIR/"
 chmod +x "$SCRIPT_DIR/scripts/strategist.sh"
 
 # Load agents
-launchctl load "$TARGET_DIR/com.strategist.morning.plist"
-launchctl load "$TARGET_DIR/com.strategist.weekreview.plist"
+launchctl load "$TARGET_DIR/com.strategist.morning.plist" || true
+launchctl load "$TARGET_DIR/com.strategist.weekreview.plist" || true
 
 echo "Done. Agents loaded:"
-launchctl list | grep strategist
+launchctl list | grep strategist || true
